@@ -1,0 +1,16 @@
+PODS:
+  - JLOperation (0.1.0)
+
+DEPENDENCIES:
+  - JLOperation (from `../`)
+
+EXTERNAL SOURCES:
+  JLOperation:
+    :path: ../
+
+SPEC CHECKSUMS:
+  JLOperation: 35b32cd37df64f59ee26143d30cf9c5542461584
+
+PODFILE CHECKSUM: c4d89dd87c242e1bc09f841d07f0833c8638797e
+
+COCOAPODS: 1.0.1

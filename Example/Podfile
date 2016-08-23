@@ -1,0 +1,6 @@
+use_frameworks!
+target 'JLOperation_Tests' do
+  pod 'JLOperation', :path => '../'
+  
+  
+end
