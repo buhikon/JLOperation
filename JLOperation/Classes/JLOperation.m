@@ -72,11 +72,13 @@ static NSInteger JLOperationObservanceContext;
 - (void)removeDelegate:(id<JLOperationDelegate>)delegate {
     if(!delegate) return;
     @synchronized (self.delegates) {
-        for(NSUInteger i=self.delegates.count-1; i>=0; i--) {
-            NSDictionary *dict = self.delegates[i];
-            id<JLOperationDelegate> delegateInArray = dict[@"delegate"];
-            if(delegateInArray == delegate) {
-                [self.delegates removeObjectAtIndex:i];
+        if(self.delegates.count > 0) {
+            for(NSUInteger i=self.delegates.count-1; i>=0; i--) {
+                NSDictionary *dict = self.delegates[i];
+                id<JLOperationDelegate> delegateInArray = dict[@"delegate"];
+                if(delegateInArray == delegate) {
+                    [self.delegates removeObjectAtIndex:i];
+                }
             }
         }
     }
@@ -88,11 +90,13 @@ static NSInteger JLOperationObservanceContext;
 }
 - (BOOL)hasDelegate:(id<JLOperationDelegate>)delegate {
     @synchronized (self.delegates) {
-        for(NSUInteger i=self.delegates.count-1; i>=0; i--) {
-            NSDictionary *dict = self.delegates[i];
-            id<JLOperationDelegate> delegateInArray = dict[@"delegate"];
-            if(delegateInArray == delegate) {
-                return YES;
+        if(self.delegates.count > 0) {
+            for(NSUInteger i=self.delegates.count-1; i>=0; i--) {
+                NSDictionary *dict = self.delegates[i];
+                id<JLOperationDelegate> delegateInArray = dict[@"delegate"];
+                if(delegateInArray == delegate) {
+                    return YES;
+                }
             }
         }
         return NO;
@@ -122,11 +126,13 @@ static NSInteger JLOperationObservanceContext;
 - (void)removeCompletionHandlerForName:(NSString *)name {
     if(!name) return;
     @synchronized (self.completionHandlers) {
-        for(NSUInteger i=self.completionHandlers.count-1; i>=0; i--) {
-            NSDictionary *dict = self.completionHandlers[i];
-            NSString *nameInArray = dict[@"name"];
-            if(nameInArray && [nameInArray isEqualToString:name]) {
-                [self.completionHandlers removeObjectAtIndex:i];
+        if(self.completionHandlers.count > 0) {
+            for(NSUInteger i=self.completionHandlers.count-1; i>=0; i--) {
+                NSDictionary *dict = self.completionHandlers[i];
+                NSString *nameInArray = dict[@"name"];
+                if(nameInArray && [nameInArray isEqualToString:name]) {
+                    [self.completionHandlers removeObjectAtIndex:i];
+                }
             }
         }
     }
