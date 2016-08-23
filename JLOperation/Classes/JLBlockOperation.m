@@ -73,7 +73,7 @@ static NSInteger JLBlockOperationObservanceContext;
     if(!delegate) return;
     @synchronized (self.delegates) {
         if(self.delegates.count > 0) {
-            for(NSUInteger i=self.delegates.count-1; i>=0; i--) {
+            for(NSInteger i=self.delegates.count-1; i>=0; i--) {
                 NSDictionary *dict = self.delegates[i];
                 id<JLOperationDelegate> delegateInArray = dict[@"delegate"];
                 if(delegateInArray == delegate) {
@@ -91,7 +91,7 @@ static NSInteger JLBlockOperationObservanceContext;
 - (BOOL)hasDelegate:(id<JLOperationDelegate>)delegate {
     @synchronized (self.delegates) {
         if(self.delegates.count > 0) {
-            for(NSUInteger i=self.delegates.count-1; i>=0; i--) {
+            for(NSInteger i=self.delegates.count-1; i>=0; i--) {
                 NSDictionary *dict = self.delegates[i];
                 id<JLOperationDelegate> delegateInArray = dict[@"delegate"];
                 if(delegateInArray == delegate) {
@@ -127,7 +127,7 @@ static NSInteger JLBlockOperationObservanceContext;
     if(!name) return;
     @synchronized (self.completionHandlers) {
         if(self.completionHandlers.count > 0) {
-            for(NSUInteger i=self.completionHandlers.count-1; i>=0; i--) {
+            for(NSInteger i=self.completionHandlers.count-1; i>=0; i--) {
                 NSDictionary *dict = self.completionHandlers[i];
                 NSString *nameInArray = dict[@"name"];
                 if(nameInArray && [nameInArray isEqualToString:name]) {
