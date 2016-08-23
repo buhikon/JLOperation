@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = This library is based on NSOperation. Some useful functionality is added, such as async operations and callback by block or delegate.
+  s.description      = "This library is based on NSOperation. Some useful functionality is added, such as async operations and callback by block or delegate."
 
   s.homepage         = 'https://github.com/buhikon/JLOperation'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
