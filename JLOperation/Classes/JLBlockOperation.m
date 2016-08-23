@@ -23,7 +23,7 @@
 
 @implementation JLBlockOperation
 
-static int JLBlockOperationObservanceContext;
+static NSInteger JLBlockOperationObservanceContext;
 
 #pragma mark - accessor
 
@@ -72,7 +72,7 @@ static int JLBlockOperationObservanceContext;
 - (void)removeDelegate:(id<JLOperationDelegate>)delegate {
     if(!delegate) return;
     @synchronized (self.delegates) {
-        for(int i=self.delegates.count-1; i>=0; i--) {
+        for(NSInteger i=self.delegates.count-1; i>=0; i--) {
             NSDictionary *dict = self.delegates[i];
             id<JLOperationDelegate> delegateInArray = dict[@"delegate"];
             if(delegateInArray == delegate) {
@@ -88,7 +88,7 @@ static int JLBlockOperationObservanceContext;
 }
 - (BOOL)hasDelegate:(id<JLOperationDelegate>)delegate {
     @synchronized (self.delegates) {
-        for(int i=self.delegates.count-1; i>=0; i--) {
+        for(NSInteger i=self.delegates.count-1; i>=0; i--) {
             NSDictionary *dict = self.delegates[i];
             id<JLOperationDelegate> delegateInArray = dict[@"delegate"];
             if(delegateInArray == delegate) {
@@ -122,7 +122,7 @@ static int JLBlockOperationObservanceContext;
 - (void)removeCompletionHandlerForName:(NSString *)name {
     if(!name) return;
     @synchronized (self.completionHandlers) {
-        for(int i=self.completionHandlers.count-1; i>=0; i--) {
+        for(NSInteger i=self.completionHandlers.count-1; i>=0; i--) {
             NSDictionary *dict = self.completionHandlers[i];
             NSString *nameInArray = dict[@"name"];
             if(nameInArray && [nameInArray isEqualToString:name]) {
